@@ -17,7 +17,7 @@ delR = 0.02
 # pharmacodynamic parameters for kSR
 rSR = 0.2 # sensitivity
 PSR = 50 # potency
-ESR = 0.2 # efficacy
+ESR = 0.5 # efficacy
 kappa = 0.01 # ~ basal rate
 
 # parameters that do not depend on drug dose
@@ -27,7 +27,9 @@ bR = 0.1
 # phenotype switching rate sentitive to resistant
 kRS = 0.01 
 # initial conditions
-x0 = array([[200], [20]])
+N0 = 1e9 # tumor size at detection
+xi = 0.1 # fraction of resistant cells at detection
+x0 = array([[(1-xi)*N0], [xi*N0]])
 
 # set drug dose range
 mvec = array(range(101))
